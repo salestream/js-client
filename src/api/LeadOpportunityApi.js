@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ErrorResponse', 'model/SuccessResponse', 'model/Text'], factory);
+    define(['ApiClient', 'model/ErrorResponse', 'model/SuccessResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/ErrorResponse'), require('../model/SuccessResponse'), require('../model/Text'));
+    module.exports = factory(require('../ApiClient'), require('../model/ErrorResponse'), require('../model/SuccessResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.SalestreamApi) {
       root.SalestreamApi = {};
     }
-    root.SalestreamApi.LeadOpportunityApi = factory(root.SalestreamApi.ApiClient, root.SalestreamApi.ErrorResponse, root.SalestreamApi.SuccessResponse, root.SalestreamApi.Text);
+    root.SalestreamApi.LeadOpportunityApi = factory(root.SalestreamApi.ApiClient, root.SalestreamApi.ErrorResponse, root.SalestreamApi.SuccessResponse);
   }
-}(this, function(ApiClient, ErrorResponse, SuccessResponse, Text) {
+}(this, function(ApiClient, ErrorResponse, SuccessResponse) {
   'use strict';
 
   /**
@@ -166,7 +166,7 @@
      * @param {Number} confidence 
      * @param {Object} opts Optional parameters
      * @param {String} opts.contact 
-     * @param {module:model/Text} opts.comment 
+     * @param {String} opts.comment 
      * @param {module:api/LeadOpportunityApi~leadIdOpportunityOpportunityIdPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
@@ -253,7 +253,7 @@
      * @param {Number} confidence 
      * @param {Object} opts Optional parameters
      * @param {String} opts.contact 
-     * @param {module:model/Text} opts.comment 
+     * @param {String} opts.comment 
      * @param {module:api/LeadOpportunityApi~leadIdOpportunityPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */

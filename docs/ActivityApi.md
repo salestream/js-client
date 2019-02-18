@@ -446,7 +446,7 @@ var id = "id_example"; // String | lead id
 var opts = {
   'phoneId': "phoneId_example", // String | 
   'detailId': "detailId_example", // String | 
-  'message': new SalestreamApi.Text(), // Text | 
+  'message': "message_example", // String | 
   'draft': true, // Boolean | 
   'schedule': 56 // Number | 
 };
@@ -467,7 +467,7 @@ Name | Type | Description  | Notes
  **id** | **String**| lead id | 
  **phoneId** | **String**|  | [optional] 
  **detailId** | **String**|  | [optional] 
- **message** | [**Text**](Text.md)|  | [optional] 
+ **message** | **String**|  | [optional] 
  **draft** | **Boolean**|  | [optional] 
  **schedule** | **Number**|  | [optional] 
 
@@ -558,7 +558,7 @@ var id = "id_example"; // String | lead id
 var smsId = "smsId_example"; // String | sms id
 var phoneId = "phoneId_example"; // String | 
 var detailId = "detailId_example"; // String | 
-var message = new SalestreamApi.Text(); // Text | 
+var message = "message_example"; // String | 
 var opts = {
   'draft': true, // Boolean | 
   'schedule': 56 // Number | 
@@ -581,7 +581,7 @@ Name | Type | Description  | Notes
  **smsId** | **String**| sms id | 
  **phoneId** | **String**|  | 
  **detailId** | **String**|  | 
- **message** | [**Text**](Text.md)|  | 
+ **message** | **String**|  | 
  **draft** | **Boolean**|  | [optional] 
  **schedule** | **Number**|  | [optional] 
 

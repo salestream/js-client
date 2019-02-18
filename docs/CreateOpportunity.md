@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **assignee** | **String** |  | 
 **confidence** | **Number** |  | 
 **contact** | **String** |  | [optional] 
-**comment** | [**Text**](Text.md) |  | [optional] 
+**comment** | **String** |  | [optional] 
 
 

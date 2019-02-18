@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ErrorResponse', 'model/SuccessResponse', 'model/Text'], factory);
+    define(['ApiClient', 'model/ErrorResponse', 'model/SuccessResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/ErrorResponse'), require('../model/SuccessResponse'), require('../model/Text'));
+    module.exports = factory(require('../ApiClient'), require('../model/ErrorResponse'), require('../model/SuccessResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.SalestreamApi) {
       root.SalestreamApi = {};
     }
-    root.SalestreamApi.ActivityApi = factory(root.SalestreamApi.ApiClient, root.SalestreamApi.ErrorResponse, root.SalestreamApi.SuccessResponse, root.SalestreamApi.Text);
+    root.SalestreamApi.ActivityApi = factory(root.SalestreamApi.ApiClient, root.SalestreamApi.ErrorResponse, root.SalestreamApi.SuccessResponse);
   }
-}(this, function(ApiClient, ErrorResponse, SuccessResponse, Text) {
+}(this, function(ApiClient, ErrorResponse, SuccessResponse) {
   'use strict';
 
   /**
@@ -499,7 +499,7 @@
      * @param {Object} opts Optional parameters
      * @param {String} opts.phoneId 
      * @param {String} opts.detailId 
-     * @param {module:model/Text} opts.message 
+     * @param {String} opts.message 
      * @param {Boolean} opts.draft 
      * @param {Number} opts.schedule 
      * @param {module:api/ActivityApi~leadIdActivitySmsPostCallback} callback The callback function, accepting three arguments: error, data, response
@@ -612,7 +612,7 @@
      * @param {String} smsId sms id
      * @param {String} phoneId 
      * @param {String} detailId 
-     * @param {module:model/Text} message 
+     * @param {String} message 
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.draft 
      * @param {Number} opts.schedule 

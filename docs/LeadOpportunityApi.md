@@ -137,7 +137,7 @@ var assignee = "assignee_example"; // String |
 var confidence = 56; // Number | 
 var opts = {
   'contact': "contact_example", // String | 
-  'comment': new SalestreamApi.Text() // Text | 
+  'comment': "comment_example" // String | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
  **assignee** | **String**|  | 
  **confidence** | **Number**|  | 
  **contact** | **String**|  | [optional] 
- **comment** | [**Text**](Text.md)|  | [optional] 
+ **comment** | **String**|  | [optional] 
 
 ### Return type
 
@@ -201,7 +201,7 @@ var assignee = "assignee_example"; // String |
 var confidence = 56; // Number | 
 var opts = {
   'contact': "contact_example", // String | 
-  'comment': new SalestreamApi.Text() // Text | 
+  'comment': "comment_example" // String | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
  **assignee** | **String**|  | 
  **confidence** | **Number**|  | 
  **contact** | **String**|  | [optional] 
- **comment** | [**Text**](Text.md)|  | [optional] 
+ **comment** | **String**|  | [optional] 
 
 ### Return type
 
