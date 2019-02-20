@@ -67,6 +67,9 @@
       if (data.hasOwnProperty('description')) {
         obj['description'] = ApiClient.convertToType(data['description'], 'String');
       }
+      if (data.hasOwnProperty('status')) {
+        obj['status'] = ApiClient.convertToType(data['status'], 'String');
+      }
       if (data.hasOwnProperty('contacts')) {
         obj['contacts'] = ApiClient.convertToType(data['contacts'], [CreateLeadContacts]);
       }
@@ -75,9 +78,6 @@
       }
       if (data.hasOwnProperty('custom_fields')) {
         obj['custom_fields'] = ApiClient.convertToType(data['custom_fields'], Object);
-      }
-      if (data.hasOwnProperty('status')) {
-        obj['status'] = ApiClient.convertToType(data['status'], 'String');
       }
     }
     return obj;
@@ -96,6 +96,10 @@
    */
   exports.prototype['description'] = undefined;
   /**
+   * @member {String} status
+   */
+  exports.prototype['status'] = undefined;
+  /**
    * @member {Array.<module:model/CreateLeadContacts>} contacts
    */
   exports.prototype['contacts'] = undefined;
@@ -107,10 +111,6 @@
    * @member {Object} custom_fields
    */
   exports.prototype['custom_fields'] = undefined;
-  /**
-   * @member {String} status
-   */
-  exports.prototype['status'] = undefined;
 
 
 

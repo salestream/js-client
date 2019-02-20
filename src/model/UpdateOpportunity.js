@@ -76,6 +76,9 @@
       if (data.hasOwnProperty('comment')) {
         obj['comment'] = ApiClient.convertToType(data['comment'], 'String');
       }
+      if (data.hasOwnProperty('value_type')) {
+        obj['value_type'] = ApiClient.convertToType(data['value_type'], 'String');
+      }
     }
     return obj;
   }
@@ -104,6 +107,10 @@
    * @member {String} comment
    */
   exports.prototype['comment'] = undefined;
+  /**
+   * @member {String} value_type
+   */
+  exports.prototype['value_type'] = undefined;
 
 
 

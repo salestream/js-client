@@ -92,6 +92,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property valueType (base name: "value_type")', function() {
+      // uncomment below and update the code to test the property valueType
+      //var instance = new SalestreamApi.CreateOpportunity();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

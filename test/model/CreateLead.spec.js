@@ -74,6 +74,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property status (base name: "status")', function() {
+      // uncomment below and update the code to test the property status
+      //var instance = new SalestreamApi.CreateLead();
+      //expect(instance).to.be();
+    });
+
     it('should have the property contacts (base name: "contacts")', function() {
       // uncomment below and update the code to test the property contacts
       //var instance = new SalestreamApi.CreateLead();
@@ -88,12 +94,6 @@
 
     it('should have the property customFields (base name: "custom_fields")', function() {
       // uncomment below and update the code to test the property customFields
-      //var instance = new SalestreamApi.CreateLead();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property status (base name: "status")', function() {
-      // uncomment below and update the code to test the property status
       //var instance = new SalestreamApi.CreateLead();
       //expect(instance).to.be();
     });

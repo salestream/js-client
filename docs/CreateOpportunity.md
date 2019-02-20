@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **confidence** | **Number** |  | 
 **contact** | **String** |  | [optional] 
 **comment** | **String** |  | [optional] 
+**valueType** | **String** |  | [optional] 
 
 
