@@ -135,9 +135,7 @@ var apiInstance = new SalestreamApi.LeadContactApi();
 var id = "id_example"; // String | lead id
 var contactId = "contactId_example"; // String | contact id
 var opts = {
-  'name': "name_example", // String | 
-  'title': "title_example", // String | 
-  'details': new SalestreamApi.CreateContactDetails() // [CreateContactDetails] | 
+  'updateContact': new SalestreamApi.UpdateContact() // UpdateContact | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -155,9 +153,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| lead id | 
  **contactId** | **String**| contact id | 
- **name** | **String**|  | [optional] 
- **title** | **String**|  | [optional] 
- **details** | [**[CreateContactDetails]**](CreateContactDetails.md)|  | [optional] 
+ **updateContact** | [**UpdateContact**](UpdateContact.md)|  | [optional] 
 
 ### Return type
 
@@ -169,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="leadIdContactsGet"></a>
@@ -223,7 +219,7 @@ Name | Type | Description  | Notes
 
 <a name="leadIdContactsPost"></a>
 # **leadIdContactsPost**
-> SuccessResponse leadIdContactsPost(id, name, opts)
+> SuccessResponse leadIdContactsPost(id, opts)
 
 
 
@@ -241,10 +237,8 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 
 var apiInstance = new SalestreamApi.LeadContactApi();
 var id = "id_example"; // String | lead id
-var name = "name_example"; // String | 
 var opts = {
-  'title': "title_example", // String | 
-  'details': new SalestreamApi.CreateContactDetails() // [CreateContactDetails] | 
+  'createContact': new SalestreamApi.CreateContact() // CreateContact | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -253,7 +247,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.leadIdContactsPost(id, name, opts, callback);
+apiInstance.leadIdContactsPost(id, opts, callback);
 ```
 
 ### Parameters
@@ -261,9 +255,7 @@ apiInstance.leadIdContactsPost(id, name, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| lead id | 
- **name** | **String**|  | 
- **title** | **String**|  | [optional] 
- **details** | [**[CreateContactDetails]**](CreateContactDetails.md)|  | [optional] 
+ **createContact** | [**CreateContact**](CreateContact.md)|  | [optional] 
 
 ### Return type
 
@@ -275,6 +267,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="leadIdTaskPost"></a>
 # **leadIdTaskPost**
-> SuccessResponse leadIdTaskPost(id, _date, userId, opts)
+> SuccessResponse leadIdTaskPost(id, opts)
 
 
 
@@ -29,10 +29,8 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 
 var apiInstance = new SalestreamApi.TaskApi();
 var id = "id_example"; // String | lead id
-var _date = 56; // Number | 
-var userId = "userId_example"; // String | 
 var opts = {
-  'desc': "desc_example" // String | 
+  'createTask': new SalestreamApi.CreateTask() // CreateTask | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -41,7 +39,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.leadIdTaskPost(id, _date, userId, opts, callback);
+apiInstance.leadIdTaskPost(id, opts, callback);
 ```
 
 ### Parameters
@@ -49,9 +47,7 @@ apiInstance.leadIdTaskPost(id, _date, userId, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| lead id | 
- **_date** | **Number**|  | 
- **userId** | **String**|  | 
- **desc** | **String**|  | [optional] 
+ **createTask** | [**CreateTask**](CreateTask.md)|  | [optional] 
 
 ### Return type
 
@@ -63,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="leadIdTaskTaskIdDelete"></a>
@@ -139,9 +135,7 @@ var apiInstance = new SalestreamApi.TaskApi();
 var id = "id_example"; // String | lead id
 var taskId = "taskId_example"; // String | task id
 var opts = {
-  '_date': 56, // Number | 
-  'userId': "userId_example", // String | 
-  'desc': "desc_example" // String | 
+  'updateTask': new SalestreamApi.UpdateTask() // UpdateTask | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -159,9 +153,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| lead id | 
  **taskId** | **String**| task id | 
- **_date** | **Number**|  | [optional] 
- **userId** | **String**|  | [optional] 
- **desc** | **String**|  | [optional] 
+ **updateTask** | [**UpdateTask**](UpdateTask.md)|  | [optional] 
 
 ### Return type
 
@@ -173,6 +165,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

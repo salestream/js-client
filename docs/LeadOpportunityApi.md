@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 <a name="leadIdOpportunityOpportunityIdPut"></a>
 # **leadIdOpportunityOpportunityIdPut**
-> SuccessResponse leadIdOpportunityOpportunityIdPut(id, opportunityId, value, estCloseDate, assignee, confidence, opts)
+> SuccessResponse leadIdOpportunityOpportunityIdPut(id, opportunityId, opts)
 
 
 
@@ -131,13 +131,8 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 var apiInstance = new SalestreamApi.LeadOpportunityApi();
 var id = "id_example"; // String | lead id
 var opportunityId = "opportunityId_example"; // String | opportunity id
-var value = 56; // Number | 
-var estCloseDate = 56; // Number | 
-var assignee = "assignee_example"; // String | 
-var confidence = 56; // Number | 
 var opts = {
-  'contact': "contact_example", // String | 
-  'comment': "comment_example" // String | 
+  'createOpportunity': new SalestreamApi.CreateOpportunity() // CreateOpportunity | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -146,7 +141,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.leadIdOpportunityOpportunityIdPut(id, opportunityId, value, estCloseDate, assignee, confidence, opts, callback);
+apiInstance.leadIdOpportunityOpportunityIdPut(id, opportunityId, opts, callback);
 ```
 
 ### Parameters
@@ -155,12 +150,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| lead id | 
  **opportunityId** | **String**| opportunity id | 
- **value** | **Number**|  | 
- **estCloseDate** | **Number**|  | 
- **assignee** | **String**|  | 
- **confidence** | **Number**|  | 
- **contact** | **String**|  | [optional] 
- **comment** | **String**|  | [optional] 
+ **createOpportunity** | [**CreateOpportunity**](CreateOpportunity.md)|  | [optional] 
 
 ### Return type
 
@@ -172,12 +162,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="leadIdOpportunityPost"></a>
 # **leadIdOpportunityPost**
-> SuccessResponse leadIdOpportunityPost(id, value, estCloseDate, assignee, confidence, opts)
+> SuccessResponse leadIdOpportunityPost(id, opts)
 
 
 
@@ -195,13 +185,8 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 
 var apiInstance = new SalestreamApi.LeadOpportunityApi();
 var id = "id_example"; // String | lead id
-var value = 56; // Number | 
-var estCloseDate = 56; // Number | 
-var assignee = "assignee_example"; // String | 
-var confidence = 56; // Number | 
 var opts = {
-  'contact': "contact_example", // String | 
-  'comment': "comment_example" // String | 
+  'createOpportunity': new SalestreamApi.CreateOpportunity() // CreateOpportunity | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -210,7 +195,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.leadIdOpportunityPost(id, value, estCloseDate, assignee, confidence, opts, callback);
+apiInstance.leadIdOpportunityPost(id, opts, callback);
 ```
 
 ### Parameters
@@ -218,12 +203,7 @@ apiInstance.leadIdOpportunityPost(id, value, estCloseDate, assignee, confidence,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| lead id | 
- **value** | **Number**|  | 
- **estCloseDate** | **Number**|  | 
- **assignee** | **String**|  | 
- **confidence** | **Number**|  | 
- **contact** | **String**|  | [optional] 
- **comment** | **String**|  | [optional] 
+ **createOpportunity** | [**CreateOpportunity**](CreateOpportunity.md)|  | [optional] 
 
 ### Return type
 
@@ -235,6 +215,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

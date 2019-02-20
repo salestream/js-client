@@ -70,6 +70,16 @@
         done();
       });
     });
+    describe('membersGet', function() {
+      it('should call membersGet successfully', function(done) {
+        //uncomment below and update the code to test membersGet
+        //instance.membersGet(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('opportunityStatusesGet', function() {
       it('should call opportunityStatusesGet successfully', function(done) {
         //uncomment below and update the code to test opportunityStatusesGet

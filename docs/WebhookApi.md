@@ -103,7 +103,7 @@ This endpoint does not need any parameter.
 
 <a name="webhookPost"></a>
 # **webhookPost**
-> SuccessResponse webhookPost(url, opts)
+> SuccessResponse webhookPost(opts)
 
 
 
@@ -120,12 +120,8 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
 var apiInstance = new SalestreamApi.WebhookApi();
-var url = "url_example"; // String | 
 var opts = {
-  'fallbackUrl': "fallbackUrl_example", // String | 
-  'errorUrl': "errorUrl_example", // String | 
-  'timeout': 56, // Number | 
-  'retryAttempts': 56 // Number | 
+  'createWebhook': new SalestreamApi.CreateWebhook() // CreateWebhook | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -134,18 +130,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.webhookPost(url, opts, callback);
+apiInstance.webhookPost(opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **url** | **String**|  | 
- **fallbackUrl** | **String**|  | [optional] 
- **errorUrl** | **String**|  | [optional] 
- **timeout** | **Number**|  | [optional] 
- **retryAttempts** | **Number**|  | [optional] 
+ **createWebhook** | [**CreateWebhook**](CreateWebhook.md)|  | [optional] 
 
 ### Return type
 
@@ -157,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="webhookRegisterPost"></a>
@@ -180,8 +172,7 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 
 var apiInstance = new SalestreamApi.WebhookApi();
 var opts = {
-  'resource': "resource_example", // String | 
-  'fields': "fields_example" // [String] | 
+  'registerResource': new SalestreamApi.RegisterResource() // RegisterResource | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -197,8 +188,7 @@ apiInstance.webhookRegisterPost(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resource** | **String**|  | [optional] 
- **fields** | [**[String]**](String.md)|  | [optional] 
+ **registerResource** | [**RegisterResource**](RegisterResource.md)|  | [optional] 
 
 ### Return type
 
@@ -210,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="webhookUnregisterPost"></a>
@@ -233,7 +223,7 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 
 var apiInstance = new SalestreamApi.WebhookApi();
 var opts = {
-  'resource': "resource_example" // String | 
+  'unregisterResource': new SalestreamApi.UnregisterResource() // UnregisterResource | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -249,7 +239,7 @@ apiInstance.webhookUnregisterPost(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resource** | **String**|  | [optional] 
+ **unregisterResource** | [**UnregisterResource**](UnregisterResource.md)|  | [optional] 
 
 ### Return type
 
@@ -261,6 +251,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

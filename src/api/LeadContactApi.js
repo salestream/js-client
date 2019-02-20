@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CreateContactDetails', 'model/ErrorResponse', 'model/SuccessResponse'], factory);
+    define(['ApiClient', 'model/CreateContact', 'model/ErrorResponse', 'model/SuccessResponse', 'model/UpdateContact'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CreateContactDetails'), require('../model/ErrorResponse'), require('../model/SuccessResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/CreateContact'), require('../model/ErrorResponse'), require('../model/SuccessResponse'), require('../model/UpdateContact'));
   } else {
     // Browser globals (root is window)
     if (!root.SalestreamApi) {
       root.SalestreamApi = {};
     }
-    root.SalestreamApi.LeadContactApi = factory(root.SalestreamApi.ApiClient, root.SalestreamApi.CreateContactDetails, root.SalestreamApi.ErrorResponse, root.SalestreamApi.SuccessResponse);
+    root.SalestreamApi.LeadContactApi = factory(root.SalestreamApi.ApiClient, root.SalestreamApi.CreateContact, root.SalestreamApi.ErrorResponse, root.SalestreamApi.SuccessResponse, root.SalestreamApi.UpdateContact);
   }
-}(this, function(ApiClient, CreateContactDetails, ErrorResponse, SuccessResponse) {
+}(this, function(ApiClient, CreateContact, ErrorResponse, SuccessResponse, UpdateContact) {
   'use strict';
 
   /**
@@ -168,15 +168,13 @@
      * @param {String} id lead id
      * @param {String} contactId contact id
      * @param {Object} opts Optional parameters
-     * @param {String} opts.name 
-     * @param {String} opts.title 
-     * @param {Array.<module:model/CreateContactDetails>} opts.details 
+     * @param {module:model/UpdateContact} opts.updateContact 
      * @param {module:api/LeadContactApi~leadIdContactsContactIdPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
     this.leadIdContactsContactIdPut = function(id, contactId, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = opts['updateContact'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -200,13 +198,10 @@
       var headerParams = {
       };
       var formParams = {
-        'name': opts['name'],
-        'title': opts['title'],
-        'details': this.apiClient.buildCollectionParam(opts['details'], 'csv')
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
 
@@ -275,25 +270,18 @@
     /**
      * Create lead contact
      * @param {String} id lead id
-     * @param {String} name 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.title 
-     * @param {Array.<module:model/CreateContactDetails>} opts.details 
+     * @param {module:model/CreateContact} opts.createContact 
      * @param {module:api/LeadContactApi~leadIdContactsPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
-    this.leadIdContactsPost = function(id, name, opts, callback) {
+    this.leadIdContactsPost = function(id, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = opts['createContact'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling leadIdContactsPost");
-      }
-
-      // verify the required parameter 'name' is set
-      if (name === undefined || name === null) {
-        throw new Error("Missing the required parameter 'name' when calling leadIdContactsPost");
       }
 
 
@@ -307,13 +295,10 @@
       var headerParams = {
       };
       var formParams = {
-        'name': name,
-        'title': opts['title'],
-        'details': this.apiClient.buildCollectionParam(opts['details'], 'csv')
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
 

@@ -80,13 +80,7 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 var apiInstance = new SalestreamApi.LeadApi();
 var id = "id_example"; // String | lead id
 var opts = {
-  'company': "company_example", // String | 
-  'url': "url_example", // String | 
-  'description': "description_example", // String | 
-  'contacts': new SalestreamApi.CreateLeadContacts(), // [CreateLeadContacts] | 
-  'addresses': new SalestreamApi.CreateLeadAddresses(), // [CreateLeadAddresses] | 
-  'customFields': null, // Object | 
-  'status': "status_example" // String | 
+  'updateLead': new SalestreamApi.UpdateLead() // UpdateLead | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -103,13 +97,7 @@ apiInstance.leadIdPut(id, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| lead id | 
- **company** | **String**|  | [optional] 
- **url** | **String**|  | [optional] 
- **description** | **String**|  | [optional] 
- **contacts** | [**[CreateLeadContacts]**](CreateLeadContacts.md)|  | [optional] 
- **addresses** | [**[CreateLeadAddresses]**](CreateLeadAddresses.md)|  | [optional] 
- **customFields** | [**Object**](Object.md)|  | [optional] 
- **status** | **String**|  | [optional] 
+ **updateLead** | [**UpdateLead**](UpdateLead.md)|  | [optional] 
 
 ### Return type
 
@@ -121,12 +109,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="leadPost"></a>
 # **leadPost**
-> SuccessResponse leadPost(company, opts)
+> SuccessResponse leadPost(opts)
 
 
 
@@ -143,14 +131,8 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 //ApiKeyAuth.apiKeyPrefix = 'Token';
 
 var apiInstance = new SalestreamApi.LeadApi();
-var company = "company_example"; // String | 
 var opts = {
-  'url': "url_example", // String | 
-  'description': "description_example", // String | 
-  'contacts': new SalestreamApi.CreateLeadContacts(), // [CreateLeadContacts] | 
-  'addresses': new SalestreamApi.CreateLeadAddresses(), // [CreateLeadAddresses] | 
-  'customFields': null, // Object | 
-  'status': "status_example" // String | 
+  'createLead': new SalestreamApi.CreateLead() // CreateLead | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -159,20 +141,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.leadPost(company, opts, callback);
+apiInstance.leadPost(opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **company** | **String**|  | 
- **url** | **String**|  | [optional] 
- **description** | **String**|  | [optional] 
- **contacts** | [**[CreateLeadContacts]**](CreateLeadContacts.md)|  | [optional] 
- **addresses** | [**[CreateLeadAddresses]**](CreateLeadAddresses.md)|  | [optional] 
- **customFields** | [**Object**](Object.md)|  | [optional] 
- **status** | **String**|  | [optional] 
+ **createLead** | [**CreateLead**](CreateLead.md)|  | [optional] 
 
 ### Return type
 
@@ -184,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="leadSearchPost"></a>
@@ -207,8 +183,7 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 
 var apiInstance = new SalestreamApi.LeadApi();
 var opts = {
-  'searchString': "searchString_example", // String | 
-  'columns': "columns_example" // [String] | 
+  'inlineObject': new SalestreamApi.InlineObject() // InlineObject | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -224,8 +199,7 @@ apiInstance.leadSearchPost(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **searchString** | **String**|  | [optional] 
- **columns** | [**[String]**](String.md)|  | [optional] 
+ **inlineObject** | [**InlineObject**](InlineObject.md)|  | [optional] 
 
 ### Return type
 
@@ -237,6 +211,6 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: Not defined
 

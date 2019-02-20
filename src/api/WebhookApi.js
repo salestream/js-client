@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ErrorResponse', 'model/SuccessResponse'], factory);
+    define(['ApiClient', 'model/CreateWebhook', 'model/ErrorResponse', 'model/RegisterResource', 'model/SuccessResponse', 'model/UnregisterResource'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/ErrorResponse'), require('../model/SuccessResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/CreateWebhook'), require('../model/ErrorResponse'), require('../model/RegisterResource'), require('../model/SuccessResponse'), require('../model/UnregisterResource'));
   } else {
     // Browser globals (root is window)
     if (!root.SalestreamApi) {
       root.SalestreamApi = {};
     }
-    root.SalestreamApi.WebhookApi = factory(root.SalestreamApi.ApiClient, root.SalestreamApi.ErrorResponse, root.SalestreamApi.SuccessResponse);
+    root.SalestreamApi.WebhookApi = factory(root.SalestreamApi.ApiClient, root.SalestreamApi.CreateWebhook, root.SalestreamApi.ErrorResponse, root.SalestreamApi.RegisterResource, root.SalestreamApi.SuccessResponse, root.SalestreamApi.UnregisterResource);
   }
-}(this, function(ApiClient, ErrorResponse, SuccessResponse) {
+}(this, function(ApiClient, CreateWebhook, ErrorResponse, RegisterResource, SuccessResponse, UnregisterResource) {
   'use strict';
 
   /**
@@ -137,23 +137,14 @@
 
     /**
      * Create webhook
-     * @param {String} url 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.fallbackUrl 
-     * @param {String} opts.errorUrl 
-     * @param {Number} opts.timeout 
-     * @param {Number} opts.retryAttempts 
+     * @param {module:model/CreateWebhook} opts.createWebhook 
      * @param {module:api/WebhookApi~webhookPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
-    this.webhookPost = function(url, opts, callback) {
+    this.webhookPost = function(opts, callback) {
       opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'url' is set
-      if (url === undefined || url === null) {
-        throw new Error("Missing the required parameter 'url' when calling webhookPost");
-      }
+      var postBody = opts['createWebhook'];
 
 
       var pathParams = {
@@ -165,15 +156,10 @@
       var headerParams = {
       };
       var formParams = {
-        'url': url,
-        'fallback_url': opts['fallbackUrl'],
-        'error_url': opts['errorUrl'],
-        'timeout': opts['timeout'],
-        'retry_attempts': opts['retryAttempts']
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
 
@@ -195,14 +181,13 @@
     /**
      * Register webhook resource
      * @param {Object} opts Optional parameters
-     * @param {String} opts.resource 
-     * @param {Array.<String>} opts.fields 
+     * @param {module:model/RegisterResource} opts.registerResource 
      * @param {module:api/WebhookApi~webhookRegisterPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
     this.webhookRegisterPost = function(opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = opts['registerResource'];
 
 
       var pathParams = {
@@ -214,12 +199,10 @@
       var headerParams = {
       };
       var formParams = {
-        'resource': opts['resource'],
-        'fields': this.apiClient.buildCollectionParam(opts['fields'], 'csv')
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
 
@@ -241,13 +224,13 @@
     /**
      * Unregister webhook resource
      * @param {Object} opts Optional parameters
-     * @param {String} opts.resource 
+     * @param {module:model/UnregisterResource} opts.unregisterResource 
      * @param {module:api/WebhookApi~webhookUnregisterPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
     this.webhookUnregisterPost = function(opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = opts['unregisterResource'];
 
 
       var pathParams = {
@@ -259,11 +242,10 @@
       var headerParams = {
       };
       var formParams = {
-        'resource': opts['resource']
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
 

@@ -128,6 +128,46 @@
     }
 
     /**
+     * Callback function to receive the result of the membersGet operation.
+     * @callback module:api/CommonApi~membersGetCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SuccessResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * get company members
+     * @param {module:api/CommonApi~membersGetCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SuccessResponse}
+     */
+    this.membersGet = function(callback) {
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['ApiKeyAuth'];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = SuccessResponse;
+
+      return this.apiClient.callApi(
+        '/members', 'GET',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the opportunityStatusesGet operation.
      * @callback module:api/CommonApi~opportunityStatusesGetCallback
      * @param {String} error Error message, if any.

@@ -135,6 +135,7 @@ Class | Method | HTTP request | Description
 *SalestreamApi.ActivityApi* | [**leadIdActivitySmsSmsIdPut**](docs/ActivityApi.md#leadIdActivitySmsSmsIdPut) | **PUT** /lead/{id}/activity/sms/{smsId} | 
 *SalestreamApi.CommonApi* | [**emailAddressesGet**](docs/CommonApi.md#emailAddressesGet) | **GET** /email-addresses | 
 *SalestreamApi.CommonApi* | [**leadStatusesGet**](docs/CommonApi.md#leadStatusesGet) | **GET** /lead-statuses | 
+*SalestreamApi.CommonApi* | [**membersGet**](docs/CommonApi.md#membersGet) | **GET** /members | 
 *SalestreamApi.CommonApi* | [**opportunityStatusesGet**](docs/CommonApi.md#opportunityStatusesGet) | **GET** /opportunity-statuses | 
 *SalestreamApi.CommonApi* | [**phoneNumbersGet**](docs/CommonApi.md#phoneNumbersGet) | **GET** /phone-numbers | 
 *SalestreamApi.CustomFieldsApi* | [**customFieldGet**](docs/CustomFieldsApi.md#customFieldGet) | **GET** /custom-field | 
@@ -169,6 +170,7 @@ Class | Method | HTTP request | Description
  - [SalestreamApi.CreateLead](docs/CreateLead.md)
  - [SalestreamApi.CreateLeadAddresses](docs/CreateLeadAddresses.md)
  - [SalestreamApi.CreateLeadContacts](docs/CreateLeadContacts.md)
+ - [SalestreamApi.CreateLeadDetails](docs/CreateLeadDetails.md)
  - [SalestreamApi.CreateNote](docs/CreateNote.md)
  - [SalestreamApi.CreateOpportunity](docs/CreateOpportunity.md)
  - [SalestreamApi.CreateSms](docs/CreateSms.md)

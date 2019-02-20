@@ -89,16 +89,7 @@ var apiInstance = new SalestreamApi.ActivityApi();
 var id = "id_example"; // String | lead id
 var emailId = "emailId_example"; // String | email id
 var opts = {
-  'emailId': "emailId_example", // String | 
-  'to': "to_example", // [String] | 
-  'cc': "cc_example", // [String] | 
-  'bcc': "bcc_example", // [String] | 
-  'subject': "subject_example", // String | 
-  'message': "message_example", // String | 
-  'draft': true, // Boolean | 
-  'reminderEnabled': true, // Boolean | 
-  'reminderDate': 56, // Number | 
-  'schedule': 56 // Number | 
+  'updateEmail': new SalestreamApi.UpdateEmail() // UpdateEmail | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -116,16 +107,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| lead id | 
  **emailId** | **String**| email id | 
- **emailId** | **String**|  | [optional] 
- **to** | [**[String]**](String.md)|  | [optional] 
- **cc** | [**[String]**](String.md)|  | [optional] 
- **bcc** | [**[String]**](String.md)|  | [optional] 
- **subject** | **String**|  | [optional] 
- **message** | **String**|  | [optional] 
- **draft** | **Boolean**|  | [optional] 
- **reminderEnabled** | **Boolean**|  | [optional] 
- **reminderDate** | **Number**|  | [optional] 
- **schedule** | **Number**|  | [optional] 
+ **updateEmail** | [**UpdateEmail**](UpdateEmail.md)|  | [optional] 
 
 ### Return type
 
@@ -137,12 +119,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="leadIdActivityEmailPost"></a>
 # **leadIdActivityEmailPost**
-> SuccessResponse leadIdActivityEmailPost(id, emailId, to, subject, message, opts)
+> SuccessResponse leadIdActivityEmailPost(id, opts)
 
 
 
@@ -160,17 +142,8 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 
 var apiInstance = new SalestreamApi.ActivityApi();
 var id = "id_example"; // String | lead id
-var emailId = "emailId_example"; // String | 
-var to = "to_example"; // [String] | 
-var subject = "subject_example"; // String | 
-var message = "message_example"; // String | 
 var opts = {
-  'cc': "cc_example", // [String] | 
-  'bcc': "bcc_example", // [String] | 
-  'draft': true, // Boolean | 
-  'reminderEnabled': true, // Boolean | 
-  'reminderDate': 56, // Number | 
-  'schedule': 56 // Number | 
+  'createEmail': new SalestreamApi.CreateEmail() // CreateEmail | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -179,7 +152,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.leadIdActivityEmailPost(id, emailId, to, subject, message, opts, callback);
+apiInstance.leadIdActivityEmailPost(id, opts, callback);
 ```
 
 ### Parameters
@@ -187,16 +160,7 @@ apiInstance.leadIdActivityEmailPost(id, emailId, to, subject, message, opts, cal
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| lead id | 
- **emailId** | **String**|  | 
- **to** | [**[String]**](String.md)|  | 
- **subject** | **String**|  | 
- **message** | **String**|  | 
- **cc** | [**[String]**](String.md)|  | [optional] 
- **bcc** | [**[String]**](String.md)|  | [optional] 
- **draft** | **Boolean**|  | [optional] 
- **reminderEnabled** | **Boolean**|  | [optional] 
- **reminderDate** | **Number**|  | [optional] 
- **schedule** | **Number**|  | [optional] 
+ **createEmail** | [**CreateEmail**](CreateEmail.md)|  | [optional] 
 
 ### Return type
 
@@ -208,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="leadIdActivityGet"></a>
@@ -339,7 +303,7 @@ var apiInstance = new SalestreamApi.ActivityApi();
 var id = "id_example"; // String | lead id
 var noteId = "noteId_example"; // String | note id
 var opts = {
-  'note': "note_example" // String | 
+  'updateNote': new SalestreamApi.UpdateNote() // UpdateNote | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -357,7 +321,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| lead id | 
  **noteId** | **String**| note id | 
- **note** | **String**|  | [optional] 
+ **updateNote** | [**UpdateNote**](UpdateNote.md)|  | [optional] 
 
 ### Return type
 
@@ -369,12 +333,12 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="leadIdActivityNotePost"></a>
 # **leadIdActivityNotePost**
-> SuccessResponse leadIdActivityNotePost(id, note)
+> SuccessResponse leadIdActivityNotePost(id, opts)
 
 
 
@@ -392,7 +356,9 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 
 var apiInstance = new SalestreamApi.ActivityApi();
 var id = "id_example"; // String | lead id
-var note = "note_example"; // String | 
+var opts = {
+  'createNote': new SalestreamApi.CreateNote() // CreateNote | 
+};
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -400,7 +366,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.leadIdActivityNotePost(id, note, callback);
+apiInstance.leadIdActivityNotePost(id, opts, callback);
 ```
 
 ### Parameters
@@ -408,7 +374,7 @@ apiInstance.leadIdActivityNotePost(id, note, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| lead id | 
- **note** | **String**|  | 
+ **createNote** | [**CreateNote**](CreateNote.md)|  | [optional] 
 
 ### Return type
 
@@ -420,7 +386,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="leadIdActivitySmsPost"></a>
@@ -444,11 +410,7 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 var apiInstance = new SalestreamApi.ActivityApi();
 var id = "id_example"; // String | lead id
 var opts = {
-  'phoneId': "phoneId_example", // String | 
-  'detailId': "detailId_example", // String | 
-  'message': "message_example", // String | 
-  'draft': true, // Boolean | 
-  'schedule': 56 // Number | 
+  'createSms': new SalestreamApi.CreateSms() // CreateSms | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -465,11 +427,7 @@ apiInstance.leadIdActivitySmsPost(id, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| lead id | 
- **phoneId** | **String**|  | [optional] 
- **detailId** | **String**|  | [optional] 
- **message** | **String**|  | [optional] 
- **draft** | **Boolean**|  | [optional] 
- **schedule** | **Number**|  | [optional] 
+ **createSms** | [**CreateSms**](CreateSms.md)|  | [optional] 
 
 ### Return type
 
@@ -481,7 +439,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="leadIdActivitySmsSmsIdDelete"></a>
@@ -537,7 +495,7 @@ Name | Type | Description  | Notes
 
 <a name="leadIdActivitySmsSmsIdPut"></a>
 # **leadIdActivitySmsSmsIdPut**
-> SuccessResponse leadIdActivitySmsSmsIdPut(id, smsId, phoneId, detailId, message, opts)
+> SuccessResponse leadIdActivitySmsSmsIdPut(id, smsId, opts)
 
 
 
@@ -556,12 +514,8 @@ ApiKeyAuth.apiKey = 'YOUR API KEY';
 var apiInstance = new SalestreamApi.ActivityApi();
 var id = "id_example"; // String | lead id
 var smsId = "smsId_example"; // String | sms id
-var phoneId = "phoneId_example"; // String | 
-var detailId = "detailId_example"; // String | 
-var message = "message_example"; // String | 
 var opts = {
-  'draft': true, // Boolean | 
-  'schedule': 56 // Number | 
+  'updateSms': new SalestreamApi.UpdateSms() // UpdateSms | 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -570,7 +524,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.leadIdActivitySmsSmsIdPut(id, smsId, phoneId, detailId, message, opts, callback);
+apiInstance.leadIdActivitySmsSmsIdPut(id, smsId, opts, callback);
 ```
 
 ### Parameters
@@ -579,11 +533,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| lead id | 
  **smsId** | **String**| sms id | 
- **phoneId** | **String**|  | 
- **detailId** | **String**|  | 
- **message** | **String**|  | 
- **draft** | **Boolean**|  | [optional] 
- **schedule** | **Number**|  | [optional] 
+ **updateSms** | [**UpdateSms**](UpdateSms.md)|  | [optional] 
 
 ### Return type
 
@@ -595,6 +545,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/x-www-form-urlencoded, application/json
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

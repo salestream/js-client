@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ErrorResponse', 'model/SuccessResponse'], factory);
+    define(['ApiClient', 'model/CreateEmail', 'model/CreateNote', 'model/CreateSms', 'model/ErrorResponse', 'model/SuccessResponse', 'model/UpdateEmail', 'model/UpdateNote', 'model/UpdateSms'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/ErrorResponse'), require('../model/SuccessResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/CreateEmail'), require('../model/CreateNote'), require('../model/CreateSms'), require('../model/ErrorResponse'), require('../model/SuccessResponse'), require('../model/UpdateEmail'), require('../model/UpdateNote'), require('../model/UpdateSms'));
   } else {
     // Browser globals (root is window)
     if (!root.SalestreamApi) {
       root.SalestreamApi = {};
     }
-    root.SalestreamApi.ActivityApi = factory(root.SalestreamApi.ApiClient, root.SalestreamApi.ErrorResponse, root.SalestreamApi.SuccessResponse);
+    root.SalestreamApi.ActivityApi = factory(root.SalestreamApi.ApiClient, root.SalestreamApi.CreateEmail, root.SalestreamApi.CreateNote, root.SalestreamApi.CreateSms, root.SalestreamApi.ErrorResponse, root.SalestreamApi.SuccessResponse, root.SalestreamApi.UpdateEmail, root.SalestreamApi.UpdateNote, root.SalestreamApi.UpdateSms);
   }
-}(this, function(ApiClient, ErrorResponse, SuccessResponse) {
+}(this, function(ApiClient, CreateEmail, CreateNote, CreateSms, ErrorResponse, SuccessResponse, UpdateEmail, UpdateNote, UpdateSms) {
   'use strict';
 
   /**
@@ -114,22 +114,13 @@
      * @param {String} id lead id
      * @param {String} emailId email id
      * @param {Object} opts Optional parameters
-     * @param {String} opts.emailId 
-     * @param {Array.<String>} opts.to 
-     * @param {Array.<String>} opts.cc 
-     * @param {Array.<String>} opts.bcc 
-     * @param {String} opts.subject 
-     * @param {String} opts.message 
-     * @param {Boolean} opts.draft 
-     * @param {Boolean} opts.reminderEnabled 
-     * @param {Number} opts.reminderDate 
-     * @param {Number} opts.schedule 
+     * @param {module:model/UpdateEmail} opts.updateEmail 
      * @param {module:api/ActivityApi~leadIdActivityEmailEmailIdPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
     this.leadIdActivityEmailEmailIdPut = function(id, emailId, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = opts['updateEmail'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -153,20 +144,10 @@
       var headerParams = {
       };
       var formParams = {
-        'emailId': opts['emailId'],
-        'to': this.apiClient.buildCollectionParam(opts['to'], 'csv'),
-        'cc': this.apiClient.buildCollectionParam(opts['cc'], 'csv'),
-        'bcc': this.apiClient.buildCollectionParam(opts['bcc'], 'csv'),
-        'subject': opts['subject'],
-        'message': opts['message'],
-        'draft': opts['draft'],
-        'reminderEnabled': opts['reminderEnabled'],
-        'reminderDate': opts['reminderDate'],
-        'schedule': opts['schedule']
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
 
@@ -188,47 +169,18 @@
     /**
      * create activity
      * @param {String} id lead id
-     * @param {String} emailId 
-     * @param {Array.<String>} to 
-     * @param {String} subject 
-     * @param {String} message 
      * @param {Object} opts Optional parameters
-     * @param {Array.<String>} opts.cc 
-     * @param {Array.<String>} opts.bcc 
-     * @param {Boolean} opts.draft 
-     * @param {Boolean} opts.reminderEnabled 
-     * @param {Number} opts.reminderDate 
-     * @param {Number} opts.schedule 
+     * @param {module:model/CreateEmail} opts.createEmail 
      * @param {module:api/ActivityApi~leadIdActivityEmailPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
-    this.leadIdActivityEmailPost = function(id, emailId, to, subject, message, opts, callback) {
+    this.leadIdActivityEmailPost = function(id, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = opts['createEmail'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling leadIdActivityEmailPost");
-      }
-
-      // verify the required parameter 'emailId' is set
-      if (emailId === undefined || emailId === null) {
-        throw new Error("Missing the required parameter 'emailId' when calling leadIdActivityEmailPost");
-      }
-
-      // verify the required parameter 'to' is set
-      if (to === undefined || to === null) {
-        throw new Error("Missing the required parameter 'to' when calling leadIdActivityEmailPost");
-      }
-
-      // verify the required parameter 'subject' is set
-      if (subject === undefined || subject === null) {
-        throw new Error("Missing the required parameter 'subject' when calling leadIdActivityEmailPost");
-      }
-
-      // verify the required parameter 'message' is set
-      if (message === undefined || message === null) {
-        throw new Error("Missing the required parameter 'message' when calling leadIdActivityEmailPost");
       }
 
 
@@ -242,20 +194,10 @@
       var headerParams = {
       };
       var formParams = {
-        'emailId': emailId,
-        'to': this.apiClient.buildCollectionParam(to, 'csv'),
-        'cc': this.apiClient.buildCollectionParam(opts['cc'], 'csv'),
-        'bcc': this.apiClient.buildCollectionParam(opts['bcc'], 'csv'),
-        'subject': subject,
-        'message': message,
-        'draft': opts['draft'],
-        'reminderEnabled': opts['reminderEnabled'],
-        'reminderDate': opts['reminderDate'],
-        'schedule': opts['schedule']
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
 
@@ -386,13 +328,13 @@
      * @param {String} id lead id
      * @param {String} noteId note id
      * @param {Object} opts Optional parameters
-     * @param {String} opts.note 
+     * @param {module:model/UpdateNote} opts.updateNote 
      * @param {module:api/ActivityApi~leadIdActivityNoteNoteIdPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
     this.leadIdActivityNoteNoteIdPut = function(id, noteId, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = opts['updateNote'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -416,11 +358,10 @@
       var headerParams = {
       };
       var formParams = {
-        'note': opts['note']
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
 
@@ -442,21 +383,18 @@
     /**
      * create note
      * @param {String} id lead id
-     * @param {String} note 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/CreateNote} opts.createNote 
      * @param {module:api/ActivityApi~leadIdActivityNotePostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
-    this.leadIdActivityNotePost = function(id, note, callback) {
-      var postBody = null;
+    this.leadIdActivityNotePost = function(id, opts, callback) {
+      opts = opts || {};
+      var postBody = opts['createNote'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling leadIdActivityNotePost");
-      }
-
-      // verify the required parameter 'note' is set
-      if (note === undefined || note === null) {
-        throw new Error("Missing the required parameter 'note' when calling leadIdActivityNotePost");
       }
 
 
@@ -470,11 +408,10 @@
       var headerParams = {
       };
       var formParams = {
-        'note': note
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
 
@@ -497,17 +434,13 @@
      * create sms
      * @param {String} id lead id
      * @param {Object} opts Optional parameters
-     * @param {String} opts.phoneId 
-     * @param {String} opts.detailId 
-     * @param {String} opts.message 
-     * @param {Boolean} opts.draft 
-     * @param {Number} opts.schedule 
+     * @param {module:model/CreateSms} opts.createSms 
      * @param {module:api/ActivityApi~leadIdActivitySmsPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
     this.leadIdActivitySmsPost = function(id, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = opts['createSms'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -525,15 +458,10 @@
       var headerParams = {
       };
       var formParams = {
-        'phoneId': opts['phoneId'],
-        'detailId': opts['detailId'],
-        'message': opts['message'],
-        'draft': opts['draft'],
-        'schedule': opts['schedule']
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
 
@@ -610,18 +538,14 @@
      * create sms
      * @param {String} id lead id
      * @param {String} smsId sms id
-     * @param {String} phoneId 
-     * @param {String} detailId 
-     * @param {String} message 
      * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.draft 
-     * @param {Number} opts.schedule 
+     * @param {module:model/UpdateSms} opts.updateSms 
      * @param {module:api/ActivityApi~leadIdActivitySmsSmsIdPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
-    this.leadIdActivitySmsSmsIdPut = function(id, smsId, phoneId, detailId, message, opts, callback) {
+    this.leadIdActivitySmsSmsIdPut = function(id, smsId, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = opts['updateSms'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -631,21 +555,6 @@
       // verify the required parameter 'smsId' is set
       if (smsId === undefined || smsId === null) {
         throw new Error("Missing the required parameter 'smsId' when calling leadIdActivitySmsSmsIdPut");
-      }
-
-      // verify the required parameter 'phoneId' is set
-      if (phoneId === undefined || phoneId === null) {
-        throw new Error("Missing the required parameter 'phoneId' when calling leadIdActivitySmsSmsIdPut");
-      }
-
-      // verify the required parameter 'detailId' is set
-      if (detailId === undefined || detailId === null) {
-        throw new Error("Missing the required parameter 'detailId' when calling leadIdActivitySmsSmsIdPut");
-      }
-
-      // verify the required parameter 'message' is set
-      if (message === undefined || message === null) {
-        throw new Error("Missing the required parameter 'message' when calling leadIdActivitySmsSmsIdPut");
       }
 
 
@@ -660,15 +569,10 @@
       var headerParams = {
       };
       var formParams = {
-        'phoneId': phoneId,
-        'detailId': detailId,
-        'message': message,
-        'draft': opts['draft'],
-        'schedule': opts['schedule']
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
 

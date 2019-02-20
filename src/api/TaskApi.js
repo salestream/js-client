@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ErrorResponse', 'model/SuccessResponse'], factory);
+    define(['ApiClient', 'model/CreateTask', 'model/ErrorResponse', 'model/SuccessResponse', 'model/UpdateTask'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/ErrorResponse'), require('../model/SuccessResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/CreateTask'), require('../model/ErrorResponse'), require('../model/SuccessResponse'), require('../model/UpdateTask'));
   } else {
     // Browser globals (root is window)
     if (!root.SalestreamApi) {
       root.SalestreamApi = {};
     }
-    root.SalestreamApi.TaskApi = factory(root.SalestreamApi.ApiClient, root.SalestreamApi.ErrorResponse, root.SalestreamApi.SuccessResponse);
+    root.SalestreamApi.TaskApi = factory(root.SalestreamApi.ApiClient, root.SalestreamApi.CreateTask, root.SalestreamApi.ErrorResponse, root.SalestreamApi.SuccessResponse, root.SalestreamApi.UpdateTask);
   }
-}(this, function(ApiClient, ErrorResponse, SuccessResponse) {
+}(this, function(ApiClient, CreateTask, ErrorResponse, SuccessResponse, UpdateTask) {
   'use strict';
 
   /**
@@ -58,30 +58,18 @@
     /**
      * Create task
      * @param {String} id lead id
-     * @param {Number} _date 
-     * @param {String} userId 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.desc 
+     * @param {module:model/CreateTask} opts.createTask 
      * @param {module:api/TaskApi~leadIdTaskPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
-    this.leadIdTaskPost = function(id, _date, userId, opts, callback) {
+    this.leadIdTaskPost = function(id, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = opts['createTask'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling leadIdTaskPost");
-      }
-
-      // verify the required parameter '_date' is set
-      if (_date === undefined || _date === null) {
-        throw new Error("Missing the required parameter '_date' when calling leadIdTaskPost");
-      }
-
-      // verify the required parameter 'userId' is set
-      if (userId === undefined || userId === null) {
-        throw new Error("Missing the required parameter 'userId' when calling leadIdTaskPost");
       }
 
 
@@ -95,13 +83,10 @@
       var headerParams = {
       };
       var formParams = {
-        'date': _date,
-        'userId': userId,
-        'desc': opts['desc']
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
 
@@ -179,15 +164,13 @@
      * @param {String} id lead id
      * @param {String} taskId task id
      * @param {Object} opts Optional parameters
-     * @param {Number} opts._date 
-     * @param {String} opts.userId 
-     * @param {String} opts.desc 
+     * @param {module:model/UpdateTask} opts.updateTask 
      * @param {module:api/TaskApi~leadIdTaskTaskIdPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
     this.leadIdTaskTaskIdPut = function(id, taskId, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = opts['updateTask'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -211,13 +194,10 @@
       var headerParams = {
       };
       var formParams = {
-        'date': opts['_date'],
-        'userId': opts['userId'],
-        'desc': opts['desc']
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
 

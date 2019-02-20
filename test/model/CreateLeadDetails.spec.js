@@ -30,7 +30,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new SalestreamApi.CreateLeadContacts();
+    instance = new SalestreamApi.CreateLeadDetails();
   });
 
   var getProperty = function(object, getter, property) {
@@ -49,28 +49,22 @@
       object[property] = value;
   }
 
-  describe('CreateLeadContacts', function() {
-    it('should create an instance of CreateLeadContacts', function() {
-      // uncomment below and update the code to test CreateLeadContacts
-      //var instance = new SalestreamApi.CreateLeadContacts();
-      //expect(instance).to.be.a(SalestreamApi.CreateLeadContacts);
+  describe('CreateLeadDetails', function() {
+    it('should create an instance of CreateLeadDetails', function() {
+      // uncomment below and update the code to test CreateLeadDetails
+      //var instance = new SalestreamApi.CreateLeadDetails();
+      //expect(instance).to.be.a(SalestreamApi.CreateLeadDetails);
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instance = new SalestreamApi.CreateLeadContacts();
+    it('should have the property contact (base name: "contact")', function() {
+      // uncomment below and update the code to test the property contact
+      //var instance = new SalestreamApi.CreateLeadDetails();
       //expect(instance).to.be();
     });
 
-    it('should have the property title (base name: "title")', function() {
-      // uncomment below and update the code to test the property title
-      //var instance = new SalestreamApi.CreateLeadContacts();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property details (base name: "details")', function() {
-      // uncomment below and update the code to test the property details
-      //var instance = new SalestreamApi.CreateLeadContacts();
+    it('should have the property type (base name: "type")', function() {
+      // uncomment below and update the code to test the property type
+      //var instance = new SalestreamApi.CreateLeadDetails();
       //expect(instance).to.be();
     });
 

@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CreateLeadAddresses', 'model/CreateLeadContacts', 'model/ErrorResponse', 'model/SuccessResponse'], factory);
+    define(['ApiClient', 'model/CreateLead', 'model/ErrorResponse', 'model/InlineObject', 'model/SuccessResponse', 'model/UpdateLead'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CreateLeadAddresses'), require('../model/CreateLeadContacts'), require('../model/ErrorResponse'), require('../model/SuccessResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/CreateLead'), require('../model/ErrorResponse'), require('../model/InlineObject'), require('../model/SuccessResponse'), require('../model/UpdateLead'));
   } else {
     // Browser globals (root is window)
     if (!root.SalestreamApi) {
       root.SalestreamApi = {};
     }
-    root.SalestreamApi.LeadApi = factory(root.SalestreamApi.ApiClient, root.SalestreamApi.CreateLeadAddresses, root.SalestreamApi.CreateLeadContacts, root.SalestreamApi.ErrorResponse, root.SalestreamApi.SuccessResponse);
+    root.SalestreamApi.LeadApi = factory(root.SalestreamApi.ApiClient, root.SalestreamApi.CreateLead, root.SalestreamApi.ErrorResponse, root.SalestreamApi.InlineObject, root.SalestreamApi.SuccessResponse, root.SalestreamApi.UpdateLead);
   }
-}(this, function(ApiClient, CreateLeadAddresses, CreateLeadContacts, ErrorResponse, SuccessResponse) {
+}(this, function(ApiClient, CreateLead, ErrorResponse, InlineObject, SuccessResponse, UpdateLead) {
   'use strict';
 
   /**
@@ -105,19 +105,13 @@
      * Update lead
      * @param {String} id lead id
      * @param {Object} opts Optional parameters
-     * @param {String} opts.company 
-     * @param {String} opts.url 
-     * @param {String} opts.description 
-     * @param {Array.<module:model/CreateLeadContacts>} opts.contacts 
-     * @param {Array.<module:model/CreateLeadAddresses>} opts.addresses 
-     * @param {Object} opts.customFields 
-     * @param {String} opts.status 
+     * @param {module:model/UpdateLead} opts.updateLead 
      * @param {module:api/LeadApi~leadIdPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
     this.leadIdPut = function(id, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = opts['updateLead'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -135,17 +129,10 @@
       var headerParams = {
       };
       var formParams = {
-        'company': opts['company'],
-        'url': opts['url'],
-        'description': opts['description'],
-        'contacts': this.apiClient.buildCollectionParam(opts['contacts'], 'csv'),
-        'addresses': this.apiClient.buildCollectionParam(opts['addresses'], 'csv'),
-        'custom_fields': opts['customFields'],
-        'status': opts['status']
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
 
@@ -166,25 +153,14 @@
 
     /**
      * Create lead
-     * @param {String} company 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.url 
-     * @param {String} opts.description 
-     * @param {Array.<module:model/CreateLeadContacts>} opts.contacts 
-     * @param {Array.<module:model/CreateLeadAddresses>} opts.addresses 
-     * @param {Object} opts.customFields 
-     * @param {String} opts.status 
+     * @param {module:model/CreateLead} opts.createLead 
      * @param {module:api/LeadApi~leadPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
-    this.leadPost = function(company, opts, callback) {
+    this.leadPost = function(opts, callback) {
       opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'company' is set
-      if (company === undefined || company === null) {
-        throw new Error("Missing the required parameter 'company' when calling leadPost");
-      }
+      var postBody = opts['createLead'];
 
 
       var pathParams = {
@@ -196,17 +172,10 @@
       var headerParams = {
       };
       var formParams = {
-        'company': company,
-        'url': opts['url'],
-        'description': opts['description'],
-        'contacts': this.apiClient.buildCollectionParam(opts['contacts'], 'csv'),
-        'addresses': this.apiClient.buildCollectionParam(opts['addresses'], 'csv'),
-        'custom_fields': opts['customFields'],
-        'status': opts['status']
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
 
@@ -228,13 +197,12 @@
     /**
      * Search for leads
      * @param {Object} opts Optional parameters
-     * @param {String} opts.searchString 
-     * @param {Array.<String>} opts.columns 
+     * @param {module:model/InlineObject} opts.inlineObject 
      * @param {module:api/LeadApi~leadSearchPostCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.leadSearchPost = function(opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = opts['inlineObject'];
 
 
       var pathParams = {
@@ -246,12 +214,10 @@
       var headerParams = {
       };
       var formParams = {
-        'searchString': opts['searchString'],
-        'columns': this.apiClient.buildCollectionParam(opts['columns'], 'csv')
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = [];
       var returnType = null;
 

@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ErrorResponse', 'model/SuccessResponse'], factory);
+    define(['ApiClient', 'model/CreateOpportunity', 'model/ErrorResponse', 'model/SuccessResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/ErrorResponse'), require('../model/SuccessResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/CreateOpportunity'), require('../model/ErrorResponse'), require('../model/SuccessResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.SalestreamApi) {
       root.SalestreamApi = {};
     }
-    root.SalestreamApi.LeadOpportunityApi = factory(root.SalestreamApi.ApiClient, root.SalestreamApi.ErrorResponse, root.SalestreamApi.SuccessResponse);
+    root.SalestreamApi.LeadOpportunityApi = factory(root.SalestreamApi.ApiClient, root.SalestreamApi.CreateOpportunity, root.SalestreamApi.ErrorResponse, root.SalestreamApi.SuccessResponse);
   }
-}(this, function(ApiClient, ErrorResponse, SuccessResponse) {
+}(this, function(ApiClient, CreateOpportunity, ErrorResponse, SuccessResponse) {
   'use strict';
 
   /**
@@ -160,19 +160,14 @@
      * Update opportunity
      * @param {String} id lead id
      * @param {String} opportunityId opportunity id
-     * @param {Number} value 
-     * @param {Number} estCloseDate 
-     * @param {String} assignee 
-     * @param {Number} confidence 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.contact 
-     * @param {String} opts.comment 
+     * @param {module:model/CreateOpportunity} opts.createOpportunity 
      * @param {module:api/LeadOpportunityApi~leadIdOpportunityOpportunityIdPutCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
-    this.leadIdOpportunityOpportunityIdPut = function(id, opportunityId, value, estCloseDate, assignee, confidence, opts, callback) {
+    this.leadIdOpportunityOpportunityIdPut = function(id, opportunityId, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = opts['createOpportunity'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -182,26 +177,6 @@
       // verify the required parameter 'opportunityId' is set
       if (opportunityId === undefined || opportunityId === null) {
         throw new Error("Missing the required parameter 'opportunityId' when calling leadIdOpportunityOpportunityIdPut");
-      }
-
-      // verify the required parameter 'value' is set
-      if (value === undefined || value === null) {
-        throw new Error("Missing the required parameter 'value' when calling leadIdOpportunityOpportunityIdPut");
-      }
-
-      // verify the required parameter 'estCloseDate' is set
-      if (estCloseDate === undefined || estCloseDate === null) {
-        throw new Error("Missing the required parameter 'estCloseDate' when calling leadIdOpportunityOpportunityIdPut");
-      }
-
-      // verify the required parameter 'assignee' is set
-      if (assignee === undefined || assignee === null) {
-        throw new Error("Missing the required parameter 'assignee' when calling leadIdOpportunityOpportunityIdPut");
-      }
-
-      // verify the required parameter 'confidence' is set
-      if (confidence === undefined || confidence === null) {
-        throw new Error("Missing the required parameter 'confidence' when calling leadIdOpportunityOpportunityIdPut");
       }
 
 
@@ -216,16 +191,10 @@
       var headerParams = {
       };
       var formParams = {
-        'value': value,
-        'est_close_date': estCloseDate,
-        'assignee': assignee,
-        'confidence': confidence,
-        'contact': opts['contact'],
-        'comment': opts['comment']
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
 
@@ -247,43 +216,18 @@
     /**
      * Create opportunity
      * @param {String} id lead id
-     * @param {Number} value 
-     * @param {Number} estCloseDate 
-     * @param {String} assignee 
-     * @param {Number} confidence 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.contact 
-     * @param {String} opts.comment 
+     * @param {module:model/CreateOpportunity} opts.createOpportunity 
      * @param {module:api/LeadOpportunityApi~leadIdOpportunityPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SuccessResponse}
      */
-    this.leadIdOpportunityPost = function(id, value, estCloseDate, assignee, confidence, opts, callback) {
+    this.leadIdOpportunityPost = function(id, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      var postBody = opts['createOpportunity'];
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling leadIdOpportunityPost");
-      }
-
-      // verify the required parameter 'value' is set
-      if (value === undefined || value === null) {
-        throw new Error("Missing the required parameter 'value' when calling leadIdOpportunityPost");
-      }
-
-      // verify the required parameter 'estCloseDate' is set
-      if (estCloseDate === undefined || estCloseDate === null) {
-        throw new Error("Missing the required parameter 'estCloseDate' when calling leadIdOpportunityPost");
-      }
-
-      // verify the required parameter 'assignee' is set
-      if (assignee === undefined || assignee === null) {
-        throw new Error("Missing the required parameter 'assignee' when calling leadIdOpportunityPost");
-      }
-
-      // verify the required parameter 'confidence' is set
-      if (confidence === undefined || confidence === null) {
-        throw new Error("Missing the required parameter 'confidence' when calling leadIdOpportunityPost");
       }
 
 
@@ -297,16 +241,10 @@
       var headerParams = {
       };
       var formParams = {
-        'value': value,
-        'est_close_date': estCloseDate,
-        'assignee': assignee,
-        'confidence': confidence,
-        'contact': opts['contact'],
-        'comment': opts['comment']
       };
 
       var authNames = ['ApiKeyAuth'];
-      var contentTypes = ['application/x-www-form-urlencoded', 'application/json'];
+      var contentTypes = ['application/json'];
       var accepts = ['application/json'];
       var returnType = SuccessResponse;
 

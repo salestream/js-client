@@ -16,18 +16,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/CreateLeadDetails'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./CreateLeadDetails'));
   } else {
     // Browser globals (root is window)
     if (!root.SalestreamApi) {
       root.SalestreamApi = {};
     }
-    root.SalestreamApi.CreateLeadContacts = factory(root.SalestreamApi.ApiClient);
+    root.SalestreamApi.CreateLeadContacts = factory(root.SalestreamApi.ApiClient, root.SalestreamApi.CreateLeadDetails);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, CreateLeadDetails) {
   'use strict';
 
 
@@ -64,6 +64,9 @@
       if (data.hasOwnProperty('title')) {
         obj['title'] = ApiClient.convertToType(data['title'], 'String');
       }
+      if (data.hasOwnProperty('details')) {
+        obj['details'] = ApiClient.convertToType(data['details'], [CreateLeadDetails]);
+      }
     }
     return obj;
   }
@@ -76,6 +79,10 @@
    * @member {String} title
    */
   exports.prototype['title'] = undefined;
+  /**
+   * @member {Array.<module:model/CreateLeadDetails>} details
+   */
+  exports.prototype['details'] = undefined;
 
 
 

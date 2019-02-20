@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CreateContact', 'model/CreateContactDetails', 'model/CreateEmail', 'model/CreateLead', 'model/CreateLeadAddresses', 'model/CreateLeadContacts', 'model/CreateNote', 'model/CreateOpportunity', 'model/CreateSms', 'model/CreateTask', 'model/CreateWebhook', 'model/ErrorResponse', 'model/InlineObject', 'model/RegisterResource', 'model/SuccessResponse', 'model/UnregisterResource', 'model/UpdateContact', 'model/UpdateEmail', 'model/UpdateLead', 'model/UpdateNote', 'model/UpdateOpportunity', 'model/UpdateSms', 'model/UpdateTask', 'model/UpdateWebhook', 'api/ActivityApi', 'api/CommonApi', 'api/CustomFieldsApi', 'api/LeadApi', 'api/LeadContactApi', 'api/LeadOpportunityApi', 'api/TaskApi', 'api/WebhookApi'], factory);
+    define(['ApiClient', 'model/CreateContact', 'model/CreateContactDetails', 'model/CreateEmail', 'model/CreateLead', 'model/CreateLeadAddresses', 'model/CreateLeadContacts', 'model/CreateLeadDetails', 'model/CreateNote', 'model/CreateOpportunity', 'model/CreateSms', 'model/CreateTask', 'model/CreateWebhook', 'model/ErrorResponse', 'model/InlineObject', 'model/RegisterResource', 'model/SuccessResponse', 'model/UnregisterResource', 'model/UpdateContact', 'model/UpdateEmail', 'model/UpdateLead', 'model/UpdateNote', 'model/UpdateOpportunity', 'model/UpdateSms', 'model/UpdateTask', 'model/UpdateWebhook', 'api/ActivityApi', 'api/CommonApi', 'api/CustomFieldsApi', 'api/LeadApi', 'api/LeadContactApi', 'api/LeadOpportunityApi', 'api/TaskApi', 'api/WebhookApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/CreateContact'), require('./model/CreateContactDetails'), require('./model/CreateEmail'), require('./model/CreateLead'), require('./model/CreateLeadAddresses'), require('./model/CreateLeadContacts'), require('./model/CreateNote'), require('./model/CreateOpportunity'), require('./model/CreateSms'), require('./model/CreateTask'), require('./model/CreateWebhook'), require('./model/ErrorResponse'), require('./model/InlineObject'), require('./model/RegisterResource'), require('./model/SuccessResponse'), require('./model/UnregisterResource'), require('./model/UpdateContact'), require('./model/UpdateEmail'), require('./model/UpdateLead'), require('./model/UpdateNote'), require('./model/UpdateOpportunity'), require('./model/UpdateSms'), require('./model/UpdateTask'), require('./model/UpdateWebhook'), require('./api/ActivityApi'), require('./api/CommonApi'), require('./api/CustomFieldsApi'), require('./api/LeadApi'), require('./api/LeadContactApi'), require('./api/LeadOpportunityApi'), require('./api/TaskApi'), require('./api/WebhookApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/CreateContact'), require('./model/CreateContactDetails'), require('./model/CreateEmail'), require('./model/CreateLead'), require('./model/CreateLeadAddresses'), require('./model/CreateLeadContacts'), require('./model/CreateLeadDetails'), require('./model/CreateNote'), require('./model/CreateOpportunity'), require('./model/CreateSms'), require('./model/CreateTask'), require('./model/CreateWebhook'), require('./model/ErrorResponse'), require('./model/InlineObject'), require('./model/RegisterResource'), require('./model/SuccessResponse'), require('./model/UnregisterResource'), require('./model/UpdateContact'), require('./model/UpdateEmail'), require('./model/UpdateLead'), require('./model/UpdateNote'), require('./model/UpdateOpportunity'), require('./model/UpdateSms'), require('./model/UpdateTask'), require('./model/UpdateWebhook'), require('./api/ActivityApi'), require('./api/CommonApi'), require('./api/CustomFieldsApi'), require('./api/LeadApi'), require('./api/LeadContactApi'), require('./api/LeadOpportunityApi'), require('./api/TaskApi'), require('./api/WebhookApi'));
   }
-}(function(ApiClient, CreateContact, CreateContactDetails, CreateEmail, CreateLead, CreateLeadAddresses, CreateLeadContacts, CreateNote, CreateOpportunity, CreateSms, CreateTask, CreateWebhook, ErrorResponse, InlineObject, RegisterResource, SuccessResponse, UnregisterResource, UpdateContact, UpdateEmail, UpdateLead, UpdateNote, UpdateOpportunity, UpdateSms, UpdateTask, UpdateWebhook, ActivityApi, CommonApi, CustomFieldsApi, LeadApi, LeadContactApi, LeadOpportunityApi, TaskApi, WebhookApi) {
+}(function(ApiClient, CreateContact, CreateContactDetails, CreateEmail, CreateLead, CreateLeadAddresses, CreateLeadContacts, CreateLeadDetails, CreateNote, CreateOpportunity, CreateSms, CreateTask, CreateWebhook, ErrorResponse, InlineObject, RegisterResource, SuccessResponse, UnregisterResource, UpdateContact, UpdateEmail, UpdateLead, UpdateNote, UpdateOpportunity, UpdateSms, UpdateTask, UpdateWebhook, ActivityApi, CommonApi, CustomFieldsApi, LeadApi, LeadContactApi, LeadOpportunityApi, TaskApi, WebhookApi) {
   'use strict';
 
   /**
@@ -91,6 +91,11 @@
      * @property {module:model/CreateLeadContacts}
      */
     CreateLeadContacts: CreateLeadContacts,
+    /**
+     * The CreateLeadDetails model constructor.
+     * @property {module:model/CreateLeadDetails}
+     */
+    CreateLeadDetails: CreateLeadDetails,
     /**
      * The CreateNote model constructor.
      * @property {module:model/CreateNote}
