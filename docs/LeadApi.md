@@ -1,6 +1,6 @@
 # SalestreamApi.LeadApi
 
-All URIs are relative to *https://rest-dev.salestream.io/api/v1*
+All URIs are relative to *https://api-us.salestream.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

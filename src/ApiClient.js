@@ -46,9 +46,9 @@
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
-     * @default https://rest-dev.salestream.io/api/v1
+     * @default https://api-us.salestream.io/api/v1
      */
-    this.basePath = 'https://rest-dev.salestream.io/api/v1'.replace(/\/+$/, '');
+    this.basePath = 'https://api-us.salestream.io/api/v1'.replace(/\/+$/, '');
 
     /**
      * The authentication methods to be included for all API calls.
@@ -492,22 +492,22 @@
     }
 
 
-    request.end(function(error, response) {
-      if (callback) {
-        var data = null;
-        if (!error) {
-          try {
-            data = _this.deserialize(response, returnType);
-            if (_this.enableCookies && typeof window === 'undefined'){
-              _this.agent._saveCookies(response);
-            }
-          } catch (err) {
-            error = err;
-          }
-        }
-        callback(error, data, response);
-      }
-    });
+	if(callback){
+		request.end(function(error, response) {
+			var data = null;
+			if (!error) {
+			  try {
+				data = _this.deserialize(response, returnType);
+				if (_this.enableCookies && typeof window === 'undefined'){
+				  _this.agent._saveCookies(response);
+				}
+			  } catch (err) {
+				error = err;
+			  }
+			}
+			callback(error, data, response);
+		});
+	}
 
     return request;
   };
@@ -593,7 +593,7 @@
     exports.hostSettings = function() {
         return [
             {
-              'url': "https://rest-dev.salestream.io/api/v1",
+              'url': "https://api-us.salestream.io/api/v1",
               'description': "No description provided",
             }
       ];
